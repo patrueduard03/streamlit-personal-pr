@@ -23,10 +23,10 @@ def show_login():
         if authenticate_user(username, password):
             st.session_state["authenticated"] = True
             st.success("Autentificat cu succes!")
-            return True  # A returna True dacă autentificarea a avut loc
+            return True  # Return True if authentication was successful
         else:
             st.error("Nume de utilizator sau parolă incorectă.")
-    return False  # A returna False dacă autentificarea nu a avut loc
+    return False  # Return False if authentication was not successful
 
 
 # Function to normalize Romanian characters
