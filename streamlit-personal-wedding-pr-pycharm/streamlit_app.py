@@ -39,11 +39,18 @@ def show_main_content():
     st.sidebar.title("Navigare")
     page = st.sidebar.selectbox("Selectează pagina", ["Vizualizare invitați", "Editare invitați"])
 
-    # Path to the Excel file
-    file_path = 'data/invitati.xlsx'  # Path to the Excel file
+    # Calea către fișierul Excel
+    file_name = 'invitati.xlsx'
+    file_path = os.path.join('data', file_name)  # Folosește os.path.join pentru a construi calea
+
+    # Inițializează df
+    df = None
 
     if os.path.exists(file_path):
+        # Citește fișierul Excel
         df = pd.read_excel(file_path)
+        st.success(f"Fișierul '{file_name}' a fost găsit și încărcat cu succes.")
+        st.dataframe(df)  # Afișează dataframe-ul în aplicația Streamlit
 
         # Normalize the DataFrame
         df['Nume'] = df['Nume'].apply(normalize_string)
