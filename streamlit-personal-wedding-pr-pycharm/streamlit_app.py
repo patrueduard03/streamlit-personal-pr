@@ -40,7 +40,7 @@ def show_main_content():
     page = st.sidebar.selectbox("Selectează pagina", ["Vizualizare invitați", "Editare invitați"])
 
     # Path to the Excel file
-    file_path = os.path.join('data', 'invitati.xlsx')
+    file_path = os.path.join('data/invitati.xlsx')
 
     # Initialize df
     df = None
